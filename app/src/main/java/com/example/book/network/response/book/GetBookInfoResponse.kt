@@ -10,11 +10,11 @@ data class GetBookInfoResponse(
     @SerializedName("current_page")
     var currentPage : Int,
     @SerializedName("history")
-    var history : HistoryResponse,
+    var history : List<HistoryResponse>,
     @SerializedName("isbn")
     var isbn : String,
     @SerializedName("notes")
-    var notes : NoteResponse,
+    var notes : List<NoteResponse>,
     @SerializedName("progress")
     var progress : Int,
     @SerializedName("started_at")

@@ -1,4 +1,4 @@
-package com.example.book.network.request.book
+package com.example.book.network.model.request.book
 
 import com.google.gson.annotations.SerializedName
 

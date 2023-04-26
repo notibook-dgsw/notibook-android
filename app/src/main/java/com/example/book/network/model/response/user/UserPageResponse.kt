@@ -1,4 +1,4 @@
-package com.example.book.network.response.user
+package com.example.book.network.model.response.user
 
 import com.google.gson.annotations.SerializedName
 

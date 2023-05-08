@@ -8,9 +8,9 @@ import retrofit2.http.GET
 interface UserAPI {
 
     @GET("/user/recommend")
-    suspend fun getRecommend() : Flow<GetRecommendResponse>
+    suspend fun getRecommend() : GetRecommendResponse
 
     @GET("/user")
-    suspend fun getUser() : Flow<UserPageResponse>
+    suspend fun getUser() : UserPageResponse
 
 }

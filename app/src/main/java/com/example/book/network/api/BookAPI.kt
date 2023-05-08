@@ -27,8 +27,8 @@ interface BookAPI {
     fun addNote(@Path("isbn") isbn: String, @Body request: AddNoteUsingRequest) : Unit
 
     @GET("/books/{isbn}")
-    suspend fun getBookInfo(@Path("isbn") isbn: String) : Flow<GetBookInfoResponse>
+    suspend fun getBookInfo(@Path("isbn") isbn: String) : GetBookInfoResponse
 
     @GET("/books/{isbn}/quiz")
-    suspend fun getQuiz(@Path("isbn") isbn: String) : Flow<GetQuizResponse>
+    suspend fun getQuiz(@Path("isbn") isbn: String) : GetQuizResponse
 }

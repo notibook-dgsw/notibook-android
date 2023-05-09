@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.flow
 
 class BookRepository {
     private val retrofit = RetrofitImpl.bookService
-
     suspend fun getBookInfo(isbn : String) : Flow<GetBookInfoResponse> = flow {
         emit(retrofit.getBookInfo(isbn))
     }

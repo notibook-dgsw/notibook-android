@@ -14,6 +14,9 @@ class MyBooksAdapter : RecyclerView.Adapter<MyBooksAdapter.MyBooksViewHolder>() 
     inner class MyBooksViewHolder(private val binding : ItemMyBooksBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(book : GetBookInfoResponse) {
             binding.book = book
+            itemView.setOnClickListener {
+
+            }
         }
     }
 

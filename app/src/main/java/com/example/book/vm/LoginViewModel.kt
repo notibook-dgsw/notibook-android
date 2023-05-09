@@ -9,6 +9,8 @@ import com.example.book.network.model.request.login.SignInRequest
 import com.example.book.repository.SignRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flowOn
@@ -17,7 +19,9 @@ import javax.inject.Inject
 
 class LoginViewModel @Inject constructor(private val repository: SignRepository): ViewModel() {
 
-    lateinit var token : String
+    companion object {
+        val token = MutableStateFlow("empty")
+    }
 
     fun login(id : String, pw : String, activity : Activity, intent : Intent) {
         viewModelScope.launch {
@@ -26,7 +30,7 @@ class LoginViewModel @Inject constructor(private val repository: SignRepository)
                 .flowOn(Dispatchers.IO)
                 .catch { e -> Log.e("로그인 에러", e.stackTraceToString()) }
                 .collect {
-                    token = it.token
+                    token.value = it.token
                     activity.startActivity(intent)
                 }
         }
